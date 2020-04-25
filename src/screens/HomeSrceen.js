@@ -1,11 +1,25 @@
 import React, { useContext } from "react";
 import { View, FlatList } from "react-native";
-import AlbumDetail from "../components/AlbumDetail";
-
-
-const HomeScreen = ({ }) => {
+import Head from "../compenents/Head";
+import News from "../compenents/News";
+import Data from "../json/HomeData.json"
+const HomeScreen = ({navigation}) => {
   return (
-    <Head/>
+     
+       <View style={{flex:1}}>
+        
+        <Head/>
+        <FlatList
+          Data={Data.News}
+          renderItem={({item})=>
+          
+          <News
+            Data={item}
+            navigation={navigation}
+            />}
+            keyExtractor={item => item.title}
+          />
+      </View>
   );
 };
 

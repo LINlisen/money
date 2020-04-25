@@ -7,6 +7,9 @@ import ModalDropdown from 'react-native-modal-dropdown';
 const Head =({})=>{
     return(
       <View style={styles.all}>
+        <Image style={{width:273,height:269,marginLeft:-100,marginTop:-100}}
+               source={require("../../img/img_circleleft.png")}/>
+               
           <View style={{flexDirection:"row"}}>
              
               <Image style={styles.bell}
@@ -32,14 +35,32 @@ const Head =({})=>{
               />
               <Text style={{width:63,height:28,fontSize:25,color:"white",marginLeft:8,marginTop:-5}}>{Data.personal[0].money}</Text>
             </View>
+            <Image source={require("../../img/img_rate.png")}
+                    style={{width:181,height:181,marginTop:26,marginLeft:91}}/>
+            <View style={{flexDirection:"row"}}>
+              <Image style={styles.usd}
+                     source={require("../../img/icon_USD.png")}/>
+              <Image style={styles.gbp}
+                     source={require("../../img/icon_GBP.png")}/>
+              <Image style={styles.gbp}
+                     source={require("../../img/icon_AUD.png")}/>
+              <Image style={styles.gbp}
+                     source={require("../../img/icon_RMB.png")}/>
+
+            </View>
+            <Image source={require("../../img/img_circleright.png")}
+                   style={{width:237,height:238,zIndex:5,marginLeft:267,opacity:0.5}}/>
         </View>
+      
       </View>
     )
 };
 const styles = StyleSheet.create({
    all:{
+     position:"absolute",
      backgroundColor:"#24272C",
-     height:900
+     height:900,
+     width:420
    },
    user:{
     width:25.85,
@@ -50,15 +71,16 @@ const styles = StyleSheet.create({
    bell:{
      width:25.85,
      height:25.94,
-     marginTop:55.46,
+     marginTop:-115,
      marginLeft:356
    },
    topbox:{
+     position:"absolute",
      width:354,
      height:392,
      backgroundColor:"#383B40",
      borderRadius:30,
-     marginTop:40,
+     marginTop:125,
      marginLeft:30,
      shadowColor: '#00000029',
     shadowOpacity: 0.4,
@@ -67,7 +89,20 @@ const styles = StyleSheet.create({
     height: 3,
     width: 2,
 },
-   }
+zIndex:2
+   },
+usd:{
+  width:43,
+  height:15,
+  marginLeft:62,
+  marginTop:35
+},
+gbp:{
+  width:43,
+  height:15,
+  marginLeft:20,
+  marginTop:35
+}
   });
   
   export default Head;

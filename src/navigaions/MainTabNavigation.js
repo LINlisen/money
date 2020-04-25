@@ -3,7 +3,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { Image } from "react-native";
-
+import HomeScreen from "../screens/HomeSrceen";
+import ChartlineScreen from "../screens/ChartlineScreen";
+import FavoriteScreen from "../screens/FavoriteScreen";
 
 
 const Tab = createBottomTabNavigator();
@@ -16,18 +18,18 @@ const MainTabNavigator = () => {
                 tabBarIcon: ({ focused, color, size }) => {
                 let iconPath;
 
-                if (route.name === 'Album') {
+                if (route.name === 'Favorite') {
                     iconPath = focused
-                    ? require('../../assets/icon_bottomnav_home_seleced.png'):
-                    require('../../assets/icon_bottomnav_home.png');
-                } else if (route.name === 'Settings') {
+                    ? require('../../img/Icon_heart.png'):
+                    require('../../img/Icon_heart.png');
+                } else if (route.name === 'Chart') {
                     iconPath = focused
-                    ? require('../../assets/icon_bottomnav_mybook_selected.png'):
-                    require('../../assets/icon_bottomnav_mybook.png');
-                } else if (route.name == 'Me') {
+                    ? require('../../img/Icon_awesome-chart-line.png'):
+                    require('../../img/Icon_awesome-chart-line.png');
+                } else if (route.name == 'Home') {
                     iconPath = focused
-                    ? require('../../assets/icon_bottomnav_favorites_seleced.png'):
-                    require('../../assets/icon_bottomnav_favorites.png');
+                    ? require('../../img/Icon_selected_home.png'):
+                    require('../../img/Icon_selected_home.png');
                 }
 
                 // You can return any component that you like here!
@@ -49,9 +51,9 @@ const MainTabNavigator = () => {
                 },
             }}
             >
-            <Tab.Screen name="Album" component={AlbumStackTab} />
-            <Tab.Screen name="Me" component={MeScreen} />
-            <Tab.Screen name="Settings" component={SettingsScreen} />
+            <Tab.Screen name="Favorite" component={FavoriteScreen} />
+            <Tab.Screen name="Chart" component={ChartlineScreen} />
+            <Tab.Screen name="Home" component={HomeScreen} />
             </Tab.Navigator>
         </NavigationContainer>
     );

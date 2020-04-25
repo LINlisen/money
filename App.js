@@ -1,17 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Head from "./src/compenents/Head";
-export default function App() {
+import HomeScreen from "./src/screens/HomeSrceen";
+import MainTabNavigator from "./src/navigaions/MainTabNavigation";
+const App=() => {
   return (
-    <Head/>
+    <MainTabNavigator />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;

@@ -1,14 +1,17 @@
 import React, { useContext } from "react";
-import { View, FlatList,Text } from "react-native";
-import Head from "../compenents/Head";
-import News from "../compenents/News";
+import { View, FlatList,Text,ScrollView } from "react-native";
+
+import Currency from "../compenents/Currency";
+import Mycurrency from "../compenents/Mycurrency";
 import Data from "../json/HomeData.json"
 const FavoriteScreen = ({navigation}) => {
   return (
      
-       <View>
-           <Text>1111</Text>
-       </View>
+    <ScrollView>
+        <View style={{flex:1}}>
+           <Currency/>
+        </View>
+      </ScrollView>
              
   );
 };

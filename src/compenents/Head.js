@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
    all:{
      position:"absolute",
      backgroundColor:"#24272C",
-     height:900,
+     height:1300,
      width:420
    },
    user:{

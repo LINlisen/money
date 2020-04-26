@@ -1,16 +1,18 @@
 import React, { useContext } from "react";
-import { View, FlatList } from "react-native";
+import { View, FlatList ,ScrollView,StyleSheet,style} from "react-native";
 import Head from "../compenents/Head";
 import News from "../compenents/News";
 import Data from "../json/HomeData.json"
+import NewsTitle from "../compenents/NewsTitle";
 const HomeScreen = ({navigation}) => {
   return (
-     
+     <ScrollView>
        <View style={{flex:1}}>
         
         <Head/>
+        <NewsTitle/>
         <FlatList
-          Data={Data.News}
+          data={Data.News}
           renderItem={({item})=>
           
           <News
@@ -20,6 +22,7 @@ const HomeScreen = ({navigation}) => {
             keyExtractor={item => item.title}
           />
       </View>
+      </ScrollView>
   );
 };
 

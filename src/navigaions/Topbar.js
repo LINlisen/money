@@ -3,11 +3,11 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { Image ,View} from "react-native";
-import HomeScreen from "../screens/HomeSrceen";
-import ChartlineScreen from "../screens/ChartlineScreen";
 import FavoriteScreen from "../screens/FavoriteScreen";
-import CalculatorScreen from "../screens/CaculatorScreen";
-import SettingsScreen from "../screens/SettingsScreen";
+import SFavoriteScreen from "../screens/SFavoriteScreen";
+
+
+
 const Tab = createBottomTabNavigator();
 
 const MainTabNavigator = () => {
@@ -20,29 +20,15 @@ const MainTabNavigator = () => {
                 tabBarIcon: ({ focused, color, size }) => {
                 let iconPath;
                 
-                if (route.name === 'Favorite') {
+                if (route.name === '現金匯率') {
                     iconPath = focused
                     ? require('../../img/icon_selected_heart.png'):
                     require('../../img/Icon_heart.png');
-                } else if (route.name === 'Chart') {
+                } else if (route.name === '即期匯率') {
                     iconPath = focused
                     ? require('../../img/Icon_selected_awesome-chart-line.png'):
                     require('../../img/Icon_awesome-chart-line.png');
-                } else if (route.name == 'Home') {
-                    iconPath = focused
-                    ? require('../../img/Icon_selected_home.png'):
-                    require('../../img/Icon_home.png');
-                }else if (route.name == 'Calculator') {
-                    iconPath = focused
-                    ? require('../../img/Icon_selected_calculator.png'):
-                    require('../../img/Icon_calculator.png');
-                }
-                else if (route.name == 'Settings') {
-                    iconPath = focused
-                    ? require('../../img/icon_selected_settings.png'):
-                    require('../../img/icon_settings.png');
-                }
-
+                } 
                 // You can return any component that you like here!
                 return (
                    
@@ -68,11 +54,10 @@ const MainTabNavigator = () => {
                 style:{height:100}
             }}
             >
-            <Tab.Screen name="Home" component={HomeScreen} />
-            <Tab.Screen name="Favorite" component={FavoriteScreen} />
-            <Tab.Screen name="Chart" component={ChartlineScreen} />
-            <Tab.Screen name="Calculator" component={CalculatorScreen} />
-            <Tab.Screen name="Settings" component={SettingsScreen} />
+            <Tab.Screen name="現金匯率" component={SFavoriteScreen} />
+            <Tab.Screen name="即期匯率" component={FavoriteScreen} />
+            
+            
             </Tab.Navigator>
         </NavigationContainer>
     );

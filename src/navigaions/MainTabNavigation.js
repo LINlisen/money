@@ -65,7 +65,7 @@ const MainTabNavigator = () => {
                 marginTop: 0,
                 paddingTop: 0,  
                 },
-                style:{height:100}
+                style:{height:80}
             }}
             >
             <Tab.Screen name="Home" component={HomeScreen} />

@@ -12,17 +12,7 @@ const FavoriteScreen = ({navigation}) => {
         <View style={{flex:1}}>
            <Currency/>
            <MycurrencyTitle/>
-           <FlatList
-          data={Data.mycurrency}
-          renderItem={({item})=>
-          
-          <Mycurrency
-          
-            Data={item}
-            navigation={navigation}
-            />}
-            keyExtractor={item => item.title}
-          />
+           <Mycurrency/>
       
         </View>
       </ScrollView>

@@ -1,15 +1,13 @@
 import React, { useContext } from "react";
-import { View, FlatList,Text} from "react-native";
-import Head from "../compenents/Head";
-import News from "../compenents/News";
-import Data from "../json/HomeData.json"
+import { View, FlatList,Text,ScrollView} from "react-native";
+import Chart from "../compenents/Chart";
 const ChartlineScreen = ({navigation}) => {
   return (
-     
-       <View>
-           <Text>1111</Text>
+     <ScrollView>
+       <View style={{flex:1}}>
+          <Chart/>
        </View>
-             
+      </ScrollView> 
   );
 };
 

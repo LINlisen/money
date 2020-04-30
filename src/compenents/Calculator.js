@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TextInput,StyleSheet,KeyboardType,Image,Text } from 'react-native';
+import { View, TextInput,StyleSheet,KeyboardType,Image,Text ,Keyboard} from 'react-native';
 import { color } from 'react-native-reanimated';
 
 class UselessTextInput extends Component {
@@ -8,7 +8,7 @@ class UselessTextInput extends Component {
       <TextInput
         {...this.props} // 将父组件传递来的所有props传递给TextInput;比如下面的multiline和numberOfLines
         editable = {true}
-        maxLength = {40}
+        maxLength = {20}
       />
     );
   }
@@ -18,7 +18,9 @@ export default class UselessTextInputMultiline extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: 'Useless Multiline Placeholder',
+      
+      text: 0,
+      
     };
   }
 
@@ -35,11 +37,20 @@ export default class UselessTextInputMultiline extends Component {
       <Text style={styles.currency}>Currency</Text>
       <Text style={styles.value}>Value</Text>
       </View>
-      <View style={{width:290,height:1,backgroundColor:"#707070",marginTop:7.5,marginLeft:34.5}}></View>
+      <View style={{width:290,height:1,backgroundColor:"#707070",marginTop:7.5,marginLeft:34.5}}>
+        <Image style={styles.usd}
+                source={require('../../img/calculator/usd.png')}/>
+                
+                </View>
+      
       <View style={{
        backgroundColor: this.state.text,
        borderBottomColor: '#000000',
-       borderBottomWidth: 1 }}
+       borderBottomWidth: 0,
+       width:200,
+       height:28,
+      marginLeft:265,
+    marginTop:25}}
        >
          <UselessTextInput
 
@@ -47,10 +58,38 @@ export default class UselessTextInputMultiline extends Component {
            numberOfLines = {4}
            onChangeText={(text) => this.setState({text})}
            value={this.state.text}
-           style={{color:"white"}}
-           placeholder="number" keyboardType="numeric"
+           style={{color:"white",fontSize:20}}
+           placeholder="number" keyboardType="numeric"clearTextOnFocus="true"  keyboardAppearance="dark" blurOnSubmit="false" returnKeyLabel='Done' 
+           returnKeyType='done' 
+           onSubmitEditing={Keyboard.dismiss}
         />
+      
       </View>
+      <View >
+          <Image style={styles.rmb}
+                source={require('../../img/calculator/rmb.png')}/>
+          <Text style={styles.rmbnum}>{(this.state.text*7.06).toFixed(2)}</Text>
+          <Image style={styles.rmb}
+                source={require('../../img/calculator/jpy.png')}/>
+          <Text style={styles.rmbnum}>{(this.state.text*106.67).toFixed(2)}</Text>
+          <Image style={styles.rmb}
+                source={require('../../img/calculator/gbp.png')}/>
+          <Text style={styles.rmbnum}>{(this.state.text*0.8).toFixed(2)}</Text>
+          <Image style={styles.rmb}
+                source={require('../../img/calculator/eur.png')}/>
+          <Text style={styles.rmbnum}>{(this.state.text*0.92).toFixed(2)}</Text>
+          <Image style={styles.rmb}
+                source={require('../../img/calculator/twd.png')}/>
+          <Text style={styles.rmbnum}>{(this.state.text*29.81).toFixed(2)}</Text>
+          <Image style={styles.rmb}
+                source={require('../../img/calculator/cad.png')}/>
+          <Text style={styles.rmbnum}>{(this.state.text*1.39).toFixed(2)}</Text>
+          <Image style={styles.rmb}
+                source={require('../../img/calculator/hkd.png')}/>
+          <Text style={styles.rmbnum}>{(this.state.text*7.75).toFixed(2)}</Text>
+          <Image source={require('../../img/Icon_plus.png')}
+                  style={styles.plus}/>
+       </View>
       </View>
      </View>
     );
@@ -86,5 +125,31 @@ const styles = StyleSheet.create({
     height:20,
     marginTop:27,
     marginLeft:146
+  },
+  usd:{
+    width:95,
+    height:35,
+    marginTop:29.5,
+    marginLeft:10
+  },
+  rmb:{
+    width:95,
+    height:35,
+    marginTop:32,
+    marginLeft:45
+  },
+  rmbnum:{
+    fontSize:15,
+    color:"white",
+    width:60,
+    height:20,
+    marginTop:-28,
+    marginLeft:265
+  },
+  plus:{
+    width:35,
+    height:35,
+    marginTop:57,
+    marginLeft:165
   }
 })

@@ -1,8 +1,16 @@
-import React from "react";
-import { StyleSheet, Text, View, Image,ScrollView,TouchableOpacity} from "react-native";
+import React,{useState} from "react";
+import { StyleSheet, Text, View, Image,ScrollView,TouchableOpacity,Button} from "react-native";
 import Data from "../json/FavoriteData.json" ;
 const Currency =({})=>{
+    show=()=>{
+        const bool=this.state.show;
+        this.setState({ show: !bool});
+      }
+      const [count,setCount]=useState(0);
+    
+    if(count%2==0){
         return(
+            
            <View style={styles.all}>
                <Image source={require('../../img/img_graycircle.png')}
                style={styles.bigcircle}
@@ -10,9 +18,14 @@ const Currency =({})=>{
                <Image source={require('../../img/img_circleright.png')}
                style={styles.smallcircle}
                />
+               <TouchableOpacity  onPress={() =>setCount((count+1))}>
                <Image source={require('../../img/button_topbar.png')}
                       style={styles.topbar}         
                 />
+             </TouchableOpacity>
+           
+
+            
             <View style={styles.box1}>
                 <View style={{flexDirection:"row"}}>
                     <Text style={styles.currency}>Currency</Text>
@@ -54,7 +67,66 @@ const Currency =({})=>{
                         />
             </View>
            </View> 
-        )
+        )}else{
+            return(
+                <View style={styles.all}>
+                <Image source={require('../../img/img_graycircle.png')}
+                style={styles.bigcircle}
+                />
+                <Image source={require('../../img/img_circleright.png')}
+                style={styles.smallcircle}
+                />
+                <TouchableOpacity  onPress={() =>setCount((count+1))}>
+               <Image source={require('../../img/img_topbar2.png')}
+                      style={styles.topbar}         
+                />
+             </TouchableOpacity>
+            
+ 
+             
+             <View style={styles.box1}>
+                 <View style={{flexDirection:"row"}}>
+                     <Text style={styles.currency}>Currency</Text>
+                     <Image source={require('../../img/icon_updown.png')}
+                             style={styles.updown}/>
+                     <Text style={styles.sell}>Sell</Text>
+                     <Text style={styles.buy}>Buy</Text>
+                 </View>
+                 <View style={{width:290,height:0,borderWidth:1,borderColor:"#707070",marginLeft:34.5,marginTop:16.5}}>
+                     <Image source={require('../../img/img_usd.png')}
+                             style={styles.usd}/>
+                     
+                 
+                 </View>
+                 <View style={{flexDirection:"row"}}>
+                 <Text style={styles.usdsell}>{Data.nowcurrency[0].sell}</Text>
+                 <Text style={styles.usdbuy}>{Data.nowcurrency[0].buy}</Text>
+                 </View>
+                 <View style={{flexDirection:"row"}}>
+                 <Image source={require('../../img/img_rmb.png')}
+                             style={styles.rmb}/>
+                 <Text style={styles.rmbsell}>{Data.nowcurrency[1].sell}</Text>
+                 <Text style={styles.rmbbuy}>{Data.nowcurrency[1].buy}</Text>
+                 </View>
+                 <View style={{flexDirection:"row"}}>
+                 <Image source={require('../../img/img_jpy.png')}
+                             style={styles.jpy}/>
+                 <Text style={styles.jpysell}>{Data.nowcurrency[2].sell}</Text>
+                 <Text style={styles.jpybuy}>{Data.nowcurrency[2].buy}</Text>
+                 </View>
+                 <View style={{flexDirection:"row"}}>
+                 <Image source={require('../../img/img_gbp.png')}
+                             style={styles.gbp}/>
+                 <Text style={styles.gbpsell}>{Data.nowcurrency[3].sell}</Text>
+                 <Text style={styles.gbpbuy}>{Data.nowcurrency[3].buy}</Text>
+                 </View>
+                 <Image style={styles.plus}
+                        source={require('../../img/Icon_plus.png')}
+                         />
+             </View>
+            </View> 
+            )
+        }
 };
 const styles = StyleSheet.create({
     all:{

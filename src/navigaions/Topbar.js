@@ -1,33 +1,15 @@
+import React from "react";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-
+import FavoriteScreen from "../screens/FavoriteScreen";
+import SFavoriteScreen from "../screens/SFavoriteScreen";
 const Tab = createMaterialTopTabNavigator();
 
 function MyTabs() {
   return (
-    <Tab.Navigator
-      initialRouteName="Feed"
-      tabBarOptions={{
-        activeTintColor: '#e91e63',
-        labelStyle: { fontSize: 12 },
-        style: { backgroundColor: 'powderblue' },
-      }}
-    >
-      <Tab.Screen
-        name="Feed"
-        component={Feed}
-        options={{ tabBarLabel: 'Home' }}
-      />
-      <Tab.Screen
-        name="Notifications"
-        component={Notifications}
-        options={{ tabBarLabel: 'Updates' }}
-      />
-      <Tab.Screen
-        name="Profile"
-        component={Profile}
-        options={{ tabBarLabel: 'Profile' }}
-      />
-    </Tab.Navigator>
+    <Tab.Navigator>
+    <Tab.Screen name="現金匯率" component={FavoriteScreen} />
+    <Tab.Screen name="即期匯率" component={SFavoriteScreen} />
+  </Tab.Navigator>
   );
 }
 export default MyTabs;

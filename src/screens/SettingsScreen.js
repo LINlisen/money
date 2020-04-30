@@ -7,7 +7,7 @@ const SettingsScreen = ({navigation}) => {
   return (
      
        <View>
-           <Text>1111</Text>
+           <Text>Settings</Text>
        </View>
              
   );

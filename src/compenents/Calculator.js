@@ -27,6 +27,7 @@ export default class UselessTextInputMultiline extends Component {
   // 你可以试着输入一种颜色，比如red，那么这个red就会作用到View的背景色样式上
   render() {
     return (
+      
     <View style={styles.all}>
       <Image style={{width:189,height:189,marginLeft:287,marginTop:-110}}
                source={require("../../img/img_graycircle.png")}/>

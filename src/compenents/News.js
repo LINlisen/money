@@ -51,13 +51,13 @@ const styles = StyleSheet.create({
           width:200,
           height:80,
           fontSize:18,
-          marginTop:10,
+          marginTop:20,
           marginLeft:15,
           color:"white"
       },
       more:{
           marginLeft:-85,
-          marginTop:110,
+          marginTop:95,
           color:"white",
           opacity:0.5
       }

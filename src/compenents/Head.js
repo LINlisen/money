@@ -22,6 +22,7 @@ const Head =({})=>{
                          defaultValue="TWD"
                          textStyle={{color:"white",width:46,height:22}}
                          style={{marginTop:25,marginLeft:161}}
+                         dropdownStyle={{borderRadius:200}}
                       />
             <Icon name="ios-arrow-down"
                  type='ionicon'
